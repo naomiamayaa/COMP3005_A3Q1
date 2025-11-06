@@ -25,12 +25,17 @@ def getAllStudents():
 # Inserts a new student record into the students table.
 def addStudent(first_name, last_name, email, enrollment_date):
     with get_conn() as conn, conn.cursor() as cur:
-        cur.execute(
-            "INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES (%s, %s, %s, %s);",
-            (first_name, last_name, email, enrollment_date)
-        )
-        new_id = cur.fetchone()[0]
-        print(f"Inserted student_id={new_id}")
+        cur.execute("""
+            INSERT INTO students (first_name, last_name, email, enrollment_date)
+            VALUES (%s, %s, %s, %s)
+            ON CONFLICT (email) DO NOTHING
+            RETURNING student_id;
+        """, (first_name, last_name, email, enrollment_date))
+        row = cur.fetchone()  # may be None if conflict
+        if row:
+            print(f"Inserted student_id={row[0]}")
+        else:
+            print(f"No insert: email '{email}' already exists.")
 
 # Updates the email address for a student with the specified student_id.
 def updateStudentEmail(student_id, new_email):
@@ -42,7 +47,7 @@ def updateStudentEmail(student_id, new_email):
         print(f"Updated student_id={student_id} with new email={new_email}")
 
 # Deletes the record of the student with the specified student_id.
-def deletStudent(student_id): 
+def deleteStudent(student_id): 
     with get_conn() as conn, conn.cursor() as cur:
         cur.execute(
             "DELETE FROM students WHERE student_id = %s;",
@@ -52,4 +57,10 @@ def deletStudent(student_id):
     
 if __name__ == "__main__":
     print("All Students:")
+    getAllStudents()
+    addStudent("Alice", "Nguyen", "alice.nguyen@example.com", date(2023, 9, 3))
+    getAllStudents()
+    updateStudentEmail(1, "john.doe+updated@example.com")
+    getAllStudents()
+    deleteStudent(3)
     getAllStudents()

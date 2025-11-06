@@ -45,3 +45,7 @@ Authored by Naomi Amaya Lovett
 
 ## Instructions to run
     python app/main.py
+
+## 4 - Video Submission Link
+
+## 5 - GitHub Link https://github.com/naomiamayaa/COMP3005_A3Q1
