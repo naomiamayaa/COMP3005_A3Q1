@@ -1,16 +1,15 @@
 ## COMP3005_A3Q1
 Implemented a PostgreSQL database using the 'Student' entity and wrote a python application that connects to this database to perform specific CRUD (Create, Read, Update, Delete) operations..
 
-## Author
 Authored by Naomi Amaya Lovett
 
-## Instructions to build (if any)
 # Prerequisites
 * PostgreSQL 12+ installed (pgAdmin optional)
 * Python 3.10+ installed
 * Git installed
 * macOS/Windows/Linux supported
 
+# How to build 
 1. Clone the repo:
     git clone <YOUR_REPO_URL> comp3005_a3q1
     cd comp3005_A3Q1
@@ -44,5 +43,5 @@ Authored by Naomi Amaya Lovett
 6. Initialize schema 
     psql -h localhost -U postgres -d comp3005 -f db/init.sql
 
-## Instructions to run
+# Instructions to run
     python app/main.py
