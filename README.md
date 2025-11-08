@@ -47,5 +47,6 @@ Authored by Naomi Amaya Lovett
     python app/main.py
 
 ## 4 - Video Submission Link
+https://www.youtube.com/watch?v=WLzQwlOmMMg 
 
 ## 5 - GitHub Link https://github.com/naomiamayaa/COMP3005_A3Q1

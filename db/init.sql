@@ -6,6 +6,8 @@ CREATE TABLE IF NOT EXISTS students (
     enrollment_date DATE
 );
 
+TRUNCATE TABLE students;
+
 INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES
 ('John', 'Doe', 'john.doe@example.com', '2023-09-01')
 ON CONFLICT DO NOTHING;

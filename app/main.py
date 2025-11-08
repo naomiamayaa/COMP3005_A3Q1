@@ -58,9 +58,9 @@ def deleteStudent(student_id):
 if __name__ == "__main__":
     print("All Students:")
     getAllStudents()
-    addStudent("Alice", "Nguyen", "alice.nguyen@example.com", date(2023, 9, 3))
+    addStudent('jamie', 'fox', 'jamiefox@example.com', date(2024, 1, 15))
     getAllStudents()
-    updateStudentEmail(1, "john.doe+updated@example.com")
+    updateStudentEmail(17, 'fox@example.com')
     getAllStudents()
-    deleteStudent(3)
+    deleteStudent(14)
     getAllStudents()
